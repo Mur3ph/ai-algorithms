@@ -10,12 +10,15 @@ import java.util.*
 fun main(args: Array<String>)
 {
     println("Creating a genetic algorithm using Kotlin")
-    generateFiveRandomPopulationNumbers()
+    generateFiveRandomPopulationNumbers().forEach { println(it)}
+
+    //Next trying to place fittness into a map
+    val map = generateFiveRandomPopulationNumbers()
 }
 
-fun generateFiveRandomPopulationNumbers()
+//Generating numbers for the 'Fittness' population
+fun generateFiveRandomPopulationNumbers(): List<Int>
 {
     //Create a list of interger type and populate  //Generate a random number between 1 and 10
-    val listOfRandomNumbers = IntArray(5){Random().nextInt(9)+1}.asList()
-    listOfRandomNumbers.forEach { println(it) }
+    return IntArray(5){Random().nextInt(9)+1}.asList()
 }
