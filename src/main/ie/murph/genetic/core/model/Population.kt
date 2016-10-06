@@ -14,7 +14,7 @@ class Population
         return IntArray(5){ Random().nextInt(9)+1}.asList()
     }
 
-    fun orderPopulationFitness()
+    fun orderPopulationFitness() : HashMap<String, Int>
     {
         //Next trying to place fittness into a map
         val map = HashMap<String, Int>()
@@ -24,7 +24,12 @@ class Population
             map.put("Population:"+index, fitness)
             index++
         }
+        return map
+    }
 
+    fun dropWeakestPopulationFitness()
+    {
+        val map = orderPopulationFitness()
         for ((string, fittnes) in map.entries)
         {
             println("User $string has $fittnes fittness")
