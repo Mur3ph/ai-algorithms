@@ -8,10 +8,27 @@ import java.util.*
 class Population
 {
     //Generating numbers for the 'Fittness' population
-    fun generateFiveRandomPopulationNumbers(): List<Int>
+    fun generateFiveRandomPopulationFitness(): List<Int>
     {
         //Create a list of interger type and populate  //Generate a random number between 1 and 10
         return IntArray(5){ Random().nextInt(9)+1}.asList()
+    }
+
+    fun orderPopulationFitness()
+    {
+        //Next trying to place fittness into a map
+        val map = HashMap<String, Int>()
+        var index = 1 // 'var' is mutable, whereas 'val' is not
+        for (fitness in generateFiveRandomPopulationFitness())
+        {
+            map.put("Population:"+index, fitness)
+            index++
+        }
+
+        for ((string, fittnes) in map.entries)
+        {
+            println("User $string has $fittnes fittness")
+        }
     }
 
 }
